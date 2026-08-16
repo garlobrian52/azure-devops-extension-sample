@@ -108,6 +108,19 @@ This sample adds a widget extension using the `IConfigurableWidget` interface to
 - Widget - [widget-catalog](src/Samples/widget-catalog)
 - Widget configuration - [widget-configuration](src/Samples/widget-configuration)
 
+# Getting Started: My First Extension
+
+The `my-first-extension` folder contains a minimal, standalone example showing how to create an Azure DevOps extension from scratch without a build system. It adds a "My Hub" page to the Azure Repos hub group.
+
+To build and publish it:
+
+    cd my-first-extension
+    npm init -y
+    npm install azure-devops-extension-sdk --save
+    tfx extension create --manifest-globs vss-extension.json
+
+See [`my-first-extension/vss-extension.json`](my-first-extension/vss-extension.json) and [`my-first-extension/my-hub.html`](my-first-extension/my-hub.html) for details.
+
 # Examples
 
 Examples are self contained samples that demonstrate how to use the Azure DevOps SDK to interact with the Azure DevOps REST APIs. They are located in the `./src/Examples` folder. The examples are not be included when building the extension.
