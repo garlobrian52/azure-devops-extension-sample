@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>My Hub</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        #message {
+            margin-top: 12px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Hub</h1>
+    <div id="message">Loading...</div>
+
+    <script src="lib/azure-devops-extension-sdk/SDK.min.js"></script>
+    <script>
+        VSS.init({
+            explicitNotifyLoaded: true,
+            usePlatformStyles: true
+        });
+
+        VSS.ready(function () {
+            var context = VSS.getWebContext();
+            document.getElementById("message").innerText =
+                "Hello, " + context.user.name + "! You are in project: " + context.project.name;
+            VSS.notifyLoadSucceeded();
+        });
+    </script>
+</body>
+</html>
